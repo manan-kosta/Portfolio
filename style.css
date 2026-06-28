@@ -738,8 +738,19 @@
     .hero{ min-height:auto; padding-top:100px; padding-bottom:40px; }
   }
   /* Hide custom play button on mobile */
-@media (max-width: 768px) {
-  .play-overlay {
-    display: none !important;
+@media (max-width:768px){
+
+  .play-overlay{
+    opacity:0;
+    pointer-events:none;
   }
+
+  #deckStage{
+    height:700px;
+  }
+
+  .deck-card{
+    top:55% !important;
+  }
+
 }
