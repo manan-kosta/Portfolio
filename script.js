@@ -10,6 +10,7 @@
   setTimeout(()=>{ introEl.style.display='none'; }, 5200);
 
   // ---- Custom cursor dot ----
+  if (window.matchMedia("(pointer: fine)").matches) {
   const cursorDot = document.createElement('div');
   cursorDot.id = 'cursorDot';
   cursorDot.className = 'cursor-dot';
@@ -28,6 +29,7 @@
     el.addEventListener('pointerenter', () => cursorDot.classList.add('hovered'));
     el.addEventListener('pointerleave', () => cursorDot.classList.remove('hovered'));
   });
+  }
 
   // ---- Scrub bar driven by scroll ----
   const fill = document.getElementById('scrubFill');
@@ -131,16 +133,27 @@ animateWave();
   function buildCard(p){
     const el = document.createElement('div');
     el.className = 'deck-card ratio-' + p.ratio;
-    const videoHtml = p.video ? `
-        <div class="video-wrap">
-          <video src="${encodeURI(p.video)}" controls playsinline preload="metadata"></video>
-          <button type="button" class="play-overlay" aria-label="Play video">${playSvg}</button>
-        </div>
-      ` : `
-        <div class="proj-thumb-placeholder">
-          <div class="play-icon">${playSvg}</div>
-        </div>
-      `;
+  const videoHtml = p.video ? `
+  <div class="video-wrap">
+    <video
+      src="${encodeURI(p.video)}"
+      playsinline
+      preload="metadata"
+    ></video>
+
+    <button
+      type="button"
+      class="play-overlay"
+      aria-label="Play video"
+    >
+      ${playSvg}
+    </button>
+  </div>
+` : `
+  <div class="proj-thumb-placeholder">
+    <div class="play-icon">${playSvg}</div>
+  </div>
+`;
     el.innerHTML = `
       <div class="proj-thumb">
         <span class="ratio-badge mono">${p.ratio.replace('-',':')}</span>
@@ -154,6 +167,11 @@ animateWave();
     if(p.video){
       const video = el.querySelector('video');
       const overlay = el.querySelector('.play-overlay');
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+if (isMobile && overlay) {
+    overlay.remove();
+}
       overlay.addEventListener('click', () => {
         if(video.paused){
           pauseAllProjectVideos();

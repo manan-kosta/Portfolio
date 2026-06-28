@@ -737,3 +737,9 @@
   @media (max-height:480px) and (orientation:landscape){
     .hero{ min-height:auto; padding-top:100px; padding-bottom:40px; }
   }
+  /* Hide custom play button on mobile */
+@media (max-width: 768px) {
+  .play-overlay {
+    display: none !important;
+  }
+}
