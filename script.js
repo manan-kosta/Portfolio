@@ -133,13 +133,17 @@ animateWave();
   function buildCard(p){
     const el = document.createElement('div');
     el.className = 'deck-card ratio-' + p.ratio;
+
+    const isDesktop = window.matchMedia("(min-width: 769px)").matches;
+    
   const videoHtml = p.video ? `
   <div class="video-wrap">
     <video
-      src="${encodeURI(p.video)}"
-      playsinline
-      preload="metadata"
-    ></video>
+    src="${encodeURI(p.video)}"
+    playsinline
+    preload="metadata"
+    ${window.matchMedia("(min-width: 769px)").matches ? "controls" : ""}
+></video>
 
     <button
       type="button"
