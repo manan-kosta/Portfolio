@@ -167,12 +167,7 @@ animateWave();
     if(p.video){
       const video = el.querySelector('video');
       const overlay = el.querySelector('.play-overlay');
-      const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-if (isMobile && overlay) {
-    overlay.remove();
-}
-      overlay.addEventListener('click', () => {
+overlay.addEventListener('click', () => {
         if(video.paused){
           pauseAllProjectVideos();
           video.play();
