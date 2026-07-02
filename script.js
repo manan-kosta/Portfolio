@@ -10,7 +10,6 @@
   setTimeout(()=>{ introEl.style.display='none'; }, 5200);
 
   // ---- Custom cursor dot ----
-  if (window.matchMedia("(pointer: fine)").matches) {
   const cursorDot = document.createElement('div');
   cursorDot.id = 'cursorDot';
   cursorDot.className = 'cursor-dot';
@@ -29,7 +28,6 @@
     el.addEventListener('pointerenter', () => cursorDot.classList.add('hovered'));
     el.addEventListener('pointerleave', () => cursorDot.classList.remove('hovered'));
   });
-  }
 
   // ---- Scrub bar driven by scroll ----
   const fill = document.getElementById('scrubFill');
@@ -113,11 +111,11 @@ animateWave();
   // ================= PROJECTS: stacked-deck carousel(jaha pr saaari photo video dalegi 
   // ) =================
   const PROJECTS = [
-    { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/q_auto,f_auto/intro_o47kmz.mp4' },
-    { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/q_auto,f_auto/2_cm0snf.mp4' },
-    { ratio:'9-16', cat:'podcast intro', title:"Raj Shamani intro", tools:'Premiere pro · DaVinci Resolve grade', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/q_auto,f_auto/3_dikdpc.mp4' },
-    { ratio:'9-16', cat:'podcast edit', title:'Mr. Beast intro', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/q_auto,f_auto/4_n80u9e.mp4' },
-    { ratio:'16-9', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · captioning · color grading',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/q_auto,f_auto/5_dz92ly.mp4' },
+    { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'videos/horizontal intro.mp4' },
+    { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'videos/send video.mp4' },
+    { ratio:'16-9', cat:'podcast intro', title:"vertical reel intro", tools:'Premiere pro · DaVinci Resolve grade', video:'videos/Raj Shamani.mp4' },
+    { ratio:'9-16', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'videos/Mr. Beast.mp4' },
+    { ratio:'16-9', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · captioning · color grading',video:'videos/iman .mp4' },
     // { ratio:'9-16', cat:'Product Reel', title:'Launch Teaser — 15 Sec Cut', tools:'Resolve grade · fast hook pacing' }
   ];
 
@@ -133,31 +131,16 @@ animateWave();
   function buildCard(p){
     const el = document.createElement('div');
     el.className = 'deck-card ratio-' + p.ratio;
-
-    const isDesktop = window.matchMedia("(min-width: 769px)").matches;
-    
-  const videoHtml = p.video ? `
-  <div class="video-wrap">
-    <video
-    src="${encodeURI(p.video)}"
-    playsinline
-    preload="metadata"
-    ${window.matchMedia("(min-width: 769px)").matches ? "controls" : ""}
-></video>
-
-    <button
-      type="button"
-      class="play-overlay"
-      aria-label="Play video"
-    >
-      ${playSvg}
-    </button>
-  </div>
-` : `
-  <div class="proj-thumb-placeholder">
-    <div class="play-icon">${playSvg}</div>
-  </div>
-`;
+    const videoHtml = p.video ? `
+        <div class="video-wrap">
+          <video src="${encodeURI(p.video)}" controls playsinline preload="metadata"></video>
+          <button type="button" class="play-overlay" aria-label="Play video">${playSvg}</button>
+        </div>
+      ` : `
+        <div class="proj-thumb-placeholder">
+          <div class="play-icon">${playSvg}</div>
+        </div>
+      `;
     el.innerHTML = `
       <div class="proj-thumb">
         <span class="ratio-badge mono">${p.ratio.replace('-',':')}</span>
@@ -171,7 +154,7 @@ animateWave();
     if(p.video){
       const video = el.querySelector('video');
       const overlay = el.querySelector('.play-overlay');
-overlay.addEventListener('click', () => {
+      overlay.addEventListener('click', () => {
         if(video.paused){
           pauseAllProjectVideos();
           video.play();
