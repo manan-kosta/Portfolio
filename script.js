@@ -111,7 +111,7 @@ animateWave();
   // ================= PROJECTS: stacked-deck carousel(jaha pr saaari photo video dalegi 
   // ) =================
   const PROJECTS = [
-    { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'videos/horizontal intro.mp4' },
+    { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/intro_o47kmz.mp4' },
     { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'videos/send video.mp4' },
     { ratio:'16-9', cat:'podcast intro', title:"vertical reel intro", tools:'Premiere pro · DaVinci Resolve grade', video:'videos/Raj Shamani.mp4' },
     { ratio:'9-16', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'videos/Mr. Beast.mp4' },
