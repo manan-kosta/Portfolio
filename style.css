@@ -846,12 +846,29 @@
 @media (max-width:1024px){
 
   .deck-stage{
-    height:500px;
+    height:700px;
+    overflow:visible;
   }
 
   .deck-card{
-    transform-origin:center center;
-    max-height:100%;
+    width:min(82vw,360px);
+    max-height:none;
+  }
+
+  .video-wrap{
+    width:100%;
+  }
+
+  .proj-thumb video{
+    width:100%;
+    height:auto;
+    max-height:480px;
+    object-fit:contain;
+    display:block;
+  }
+
+  .proj-body{
+    padding:18px;
   }
 
 }
