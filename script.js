@@ -165,9 +165,15 @@ animateWave();
           video.play();
         }
       });
-      video.addEventListener('play', () => overlay.classList.add('hidden'));
-      video.addEventListener('pause', () => overlay.classList.remove('hidden'));
-    }
+   video.addEventListener('play', () => {
+    overlay.classList.add('hidden');
+    el.querySelector('.proj-thumb').classList.add('playing');
+});
+
+video.addEventListener('pause', () => {
+    overlay.classList.remove('hidden');
+    el.querySelector('.proj-thumb').classList.remove('playing');
+});
     return el;
   }
 
