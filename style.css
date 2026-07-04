@@ -598,18 +598,12 @@
     position:relative; display:flex; align-items:center; justify-content:center;
     border-bottom:1px solid var(--line); overflow:hidden;
   }
-  /*.deck-card.ratio-9-16 .proj-thumb{ height:74%; }*/
-.deck-card.ratio-16-9 .proj-thumb{
-    aspect-ratio:16/9;
-}
-
-.deck-card.ratio-9-16 .proj-thumb{
-    aspect-ratio:9/16;
-}
+  .deck-card.ratio-9-16 .proj-thumb{ height:74%; }
   .proj-thumb video{
     width:100%;
-    height:100%;
-    object-fit:cover;
+    height:auto;
+    max-height:420px;
+    object-fit:contain;
     display:block;
 }
   }
@@ -850,15 +844,3 @@
   .nav-cta{
     cursor:auto;
   }
-@media (max-width:1024px){
-
-    .deck-card.ratio-9-16{
-        width:min(58vw,260px);
-    }
-
-    .deck-card.ratio-16-9{
-        width:min(82vw,360px);
-    }
-
-}
-}
