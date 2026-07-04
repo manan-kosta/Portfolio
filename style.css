@@ -633,10 +633,7 @@
     pointer-events:none;
     background:radial-gradient(circle at 50% 40%, var(--red-soft), transparent 60%);
 }
-.proj-thumb::after{
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background:radial-gradient(circle at 50% 40%, var(--red-soft), transparent 60%);
-  }
+
   .play-icon{
     width:52px; height:52px; border-radius:50%; background:rgba(245,242,237,0.08);
     border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
