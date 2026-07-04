@@ -113,7 +113,7 @@ animateWave();
   const PROJECTS = [
     { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/intro_o47kmz.mp4' },
     { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/2_cm0snf.mp4' },
-    { ratio:'16-9', cat:'podcast intro', title:"vertical reel intro", tools:'Premiere pro · DaVinci Resolve grade', video:'https://player.cloudinary.com/embed/?cloud_name=dqwcoigxe&public_id=3_dikdpc' },
+    { ratio:'16-9', cat:'podcast intro', title:"vertical reel intro", tools:'Premiere pro · DaVinci Resolve grade', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/3_dikdpc.mp4' },
     { ratio:'9-16', cat:'podcast edit', title:'Mr. Beast intro', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/4_n80u9e.mp4' },
     { ratio:'16-9', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · captioning · color grading',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/5_dz92ly.mp4' },
     // { ratio:'9-16', cat:'Product Reel', title:'Launch Teaser — 15 Sec Cut', tools:'Resolve grade · fast hook pacing' }
