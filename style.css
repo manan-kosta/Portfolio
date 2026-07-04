@@ -851,7 +851,7 @@
   }
 
   .deck-card{
-    width:min(82vw,360px);
+    width:min(72vw,360px);
     max-height:none;
   }
 
@@ -862,7 +862,7 @@
   .proj-thumb video{
     width:100%;
     height:auto;
-    max-height:480px;
+    max-height:390px;
     object-fit:contain;
     display:block;
   }
