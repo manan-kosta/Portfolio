@@ -133,7 +133,12 @@ animateWave();
     el.className = 'deck-card ratio-' + p.ratio;
     const videoHtml = p.video ? `
         <div class="video-wrap">
-          <video src="${encodeURI(p.video)}" controls playsinline preload="metadata"></video>
+          <video
+  src="${encodeURI(p.video)}"
+  ${window.innerWidth <= 1024 ? '' : 'controls'}
+  playsinline
+  preload="metadata"
+></video>
           <button type="button" class="play-overlay" aria-label="Play video">${playSvg}</button>
         </div>
       ` : `
