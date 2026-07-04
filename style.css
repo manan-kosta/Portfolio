@@ -824,3 +824,23 @@
   @media (max-height:480px) and (orientation:landscape){
     .hero{ min-height:auto; padding-top:100px; padding-bottom:40px; }
   }
+/* Hide custom cursor on tablet & mobile */
+@media (max-width:1024px){
+
+  body{
+    cursor:auto;
+  }
+
+  .cursor-dot{
+    display:none !important;
+  }
+
+  a,
+  button,
+  .proj-arrow,
+  .contact-link,
+  .nav-cta{
+    cursor:auto;
+  }
+
+}
