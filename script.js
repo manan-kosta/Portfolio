@@ -170,8 +170,6 @@ overlay.classList.add('hidden'));
 
 video.addEventListener('pause', () =>
 overlay.classList.remove('hidden'));
- el.querySelector('.proj-thumb').classList.remove('playing');
-});
     return el;
   }
 
