@@ -172,15 +172,17 @@ animateWave();
   }
 
   function pauseAllProjectVideos(){
-    cardEls.forEach(card => {
-      const vid = card.querySelector('video');
-      const overlay = card.querySelector('.play-overlay');
-      if(vid){
-        vid.pause();
-        if(overlay) overlay.classList.remove('hidden');
-      }
-    });
-  }
+  cardEls.forEach(card => {
+    const vid = card.querySelector('video');
+    const overlay = card.querySelector('.play-overlay');
+
+    if(vid){
+      vid.pause();
+      vid.currentTime = 0;   // Video ko start pe le aayega
+      if(overlay) overlay.classList.remove('hidden');
+    }
+  });
+}
 
   const cardEls = PROJECTS.map(buildCard);
   cardEls.forEach(el => stage.appendChild(el));
