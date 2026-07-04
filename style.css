@@ -843,3 +843,15 @@
   .nav-cta{
     cursor:auto;
   }
+@media (max-width:1024px){
+
+  .deck-stage{
+    height:500px;
+  }
+
+  .deck-card{
+    transform-origin:center center;
+    max-height:100%;
+  }
+
+}
