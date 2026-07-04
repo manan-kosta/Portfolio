@@ -630,26 +630,10 @@
     content:""; position:absolute; inset:0; pointer-events:none;
     background:repeating-linear-gradient(90deg, transparent, transparent 34px, rgba(245,242,237,0.04) 34px, rgba(245,242,237,0.04) 35px);
   }
-
-
 .proj-thumb::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    background:radial-gradient(circle at 50% 40%, var(--red-soft), transparent 60%);
-    opacity:1;
-    transition:opacity .25s ease;
-}
-
-.proj-thumb.playing::after{
-    opacity:0;
-}
-
-  /*.proj-thumb::after{
     content:""; position:absolute; inset:0; pointer-events:none;
     background:radial-gradient(circle at 50% 40%, var(--red-soft), transparent 60%);
-  }*/
+  }
   .play-icon{
     width:52px; height:52px; border-radius:50%; background:rgba(245,242,237,0.08);
     border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
