@@ -128,7 +128,7 @@ animateWave();
   const N = PROJECTS.length;
   const playSvg = '<svg viewBox="0 0 24 24" fill="none"><path d="M7 4L20 12L7 20V4Z" fill="#F5F2ED"/></svg>';
 
-  function buildCard(p){
+function buildCard(p){
     const el = document.createElement('div');
     el.className = 'deck-card ratio-' + p.ratio;
     const videoHtml = p.video ? `
@@ -183,7 +183,7 @@ video.addEventListener('pause', () =>
 overlay.classList.remove('hidden'));
     return el;
   }
-
+}
   function pauseAllProjectVideos(){
   cardEls.forEach(card => {
     const vid = card.querySelector('video');

@@ -865,9 +865,33 @@
   @media (max-height:480px) and (orientation:landscape){
     .hero{ min-height:auto; padding-top:100px; padding-bottom:40px; }
   }
-/* Hide custom cursor on tablet & mobile */
-@media (max-width:1024px){
-  .cursor-dot{ display:none !important; }
+@media (min-width:1600px){ ... }
+
+@media (max-height:480px) and (orientation:landscape){ ... }
+
+/* Desktop only custom cursor */
+@media (hover: hover) and (pointer: fine){
+
+  /* body{
+    cursor:none;
+  } */
+
+  .cursor-dot{
+    display:block;
+  }
+
+  a,
+  button,
+  .proj-arrow,
+  .contact-link,
+  .nav-cta{
+    cursor:pointer;
+  }
+
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none), (pointer: coarse){
 
   body{
     cursor:auto;
@@ -884,6 +908,7 @@
   .nav-cta{
     cursor:auto;
   }
+
 }
 @media (max-width:1024px){
 
