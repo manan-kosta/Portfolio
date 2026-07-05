@@ -159,6 +159,17 @@ animateWave();
     if(p.video){
       const video = el.querySelector('video');
       const overlay = el.querySelector('.play-overlay');
+//       video.addEventListener("loadedmetadata", () => {
+
+//     const ratio = video.videoWidth / video.videoHeight;
+
+//     if (ratio > 1) {
+//         el.classList.add("landscape");
+//     } else {
+//         el.classList.add("portrait");
+//     }
+
+// });
       overlay.addEventListener('click', () => {
         if(video.paused){
           pauseAllProjectVideos();
