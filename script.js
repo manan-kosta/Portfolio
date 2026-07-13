@@ -111,11 +111,11 @@ animateWave();
   // ================= PROJECTS: stacked-deck carousel(jaha pr saaari photo video dalegi 
   // ) =================
   const PROJECTS = [
-    { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/intro_o47kmz.mp4' },
-    { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/2_cm0snf.mp4' },
-    { ratio:'9-16', cat:'podcast intro', title:"raj shamani intro", tools:'Premiere pro · DaVinci Resolve grade', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/3_dikdpc.mp4' },
-    { ratio:'9-16', cat:'podcast edit', title:'Mr. Beast intro', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/4_n80u9e.mp4' },
-    { ratio:'16-9', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · captioning · color grading',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/5_dz92ly.mp4' },
+    { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/intro_o47kmz.mp4', thumb:'thumbnail/podcast.png' },
+    { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/2_cm0snf.mp4', thumb:'thumbnail/rishikesh.png' },
+    { ratio:'9-16', cat:'podcast intro', title:"raj shamani intro", tools:'Premiere pro · DaVinci Resolve grade', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/3_dikdpc.mp4', thumb:'thumbnail/raj.png' },
+    { ratio:'9-16', cat:'podcast edit', title:'Mr. Beast intro', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/4_n80u9e.mp4', thumb:'thumbnail/mrbeast.jpg' },
+    { ratio:'16-9', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · captioning · color grading',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/5_dz92ly.mp4', thumb:'thumbnail/iman.png' },
     // { ratio:'9-16', cat:'Product Reel', title:'Launch Teaser — 15 Sec Cut', tools:'Resolve grade · fast hook pacing' }
   ];
 
@@ -131,10 +131,13 @@ animateWave();
 function buildCard(p){
     const el = document.createElement('div');
     el.className = 'deck-card ratio-' + p.ratio;
+    const posterAttr = p.thumb ? `poster="${encodeURI(p.thumb)}"` : '';
     const videoHtml = p.video ? `
         <div class="video-wrap">
+          <img class="proj-thumb-img" src="${encodeURI(p.thumb)}" alt="${p.title} thumbnail">
           <video
   src="${encodeURI(p.video)}"
+  ${posterAttr}
   ${window.innerWidth <= 1024 ? '' : 'controls'}
   playsinline
   preload="metadata"
@@ -159,40 +162,47 @@ function buildCard(p){
     if(p.video){
       const video = el.querySelector('video');
       const overlay = el.querySelector('.play-overlay');
-//       video.addEventListener("loadedmetadata", () => {
-
-//     const ratio = video.videoWidth / video.videoHeight;
-
-//     if (ratio > 1) {
-//         el.classList.add("landscape");
-//     } else {
-//         el.classList.add("portrait");
-//     }
-
-// });
+      const thumbImg = el.querySelector('.proj-thumb-img');
+      const showPreview = () => {
+        if(overlay) overlay.classList.remove('hidden');
+        if(thumbImg) thumbImg.classList.remove('hidden');
+        if(video){
+          video.pause();
+          video.currentTime = 0;
+          video.classList.add('hidden');
+        }
+      };
+      const hidePreview = () => {
+        if(overlay) overlay.classList.add('hidden');
+        if(thumbImg) thumbImg.classList.add('hidden');
+        if(video) video.classList.remove('hidden');
+      };
+      showPreview();
       overlay.addEventListener('click', () => {
         if(video.paused){
           pauseAllProjectVideos();
+          hidePreview();
           video.play();
         }
       });
-   video.addEventListener('play', () =>
-overlay.classList.add('hidden'));
-
-video.addEventListener('pause', () =>
-overlay.classList.remove('hidden'));
+      video.addEventListener('play', hidePreview);
+      video.addEventListener('pause', showPreview);
+      video.addEventListener('ended', showPreview);
+    }
     return el;
   }
-}
   function pauseAllProjectVideos(){
   cardEls.forEach(card => {
     const vid = card.querySelector('video');
     const overlay = card.querySelector('.play-overlay');
+    const thumbImg = card.querySelector('.proj-thumb-img');
 
     if(vid){
       vid.pause();
       vid.currentTime = 0;   // Video ko start pe le aayega
       if(overlay) overlay.classList.remove('hidden');
+      if(thumbImg) thumbImg.classList.remove('hidden');
+      vid.classList.add('hidden');
     }
   });
 }
