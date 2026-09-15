@@ -111,12 +111,15 @@ animateWave();
   // ================= PROJECTS: stacked-deck carousel(jaha pr saaari photo video dalegi 
   // ) =================
   const PROJECTS = [
+    { ratio:'16-9', cat:'Motion Graphics Motion Design', title:'LET ME INTRODUCE MYSELF..!', tools:'AFTER EFFECTS · 3D CAMERA · NULL OBJECT · SOUND DESIGN' , video:'https://res.cloudinary.com/dqwcoigxe/video/upload/MANAN_PORTFOLIO_xhyzwx.mp4', thumb:'thumbnail/portfolio.png' },
+    { ratio:'16-9', cat:'Motion Graphics', title:'GOD OF KNOWLEDGE', tools:'AFTER EFFECTS · 3D CAMERA · SOUND DESIGN' , video:'https://res.cloudinary.com/dqwcoigxe/video/upload/motion_2_isl2cl.mp4', thumb:'thumbnail/god.png' },
     { ratio:'16-9', cat:'PODCAST Intro', title:"BENIFETS OF GAUMUTRA", tools:'Premiere Pro · DaVinci Resolve grade · sfx design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/intro_o47kmz.mp4', thumb:'thumbnail/podcast.png' },
+    { ratio:'16-9', cat:'APPLE UI CONSEPT', title:"MOTION DESIGN", tools:'AFTER EFFECTS · FIGMA · SFX DESIGN', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/Apple_UI_qssa4v.mp4', thumb:'thumbnail/apple-ui.png' },
     { ratio:'9-16', cat:'Instagram Reel', title:'travel insta reel', tools:'Premiere Pro · DaVinci Resolve grade · music design', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/2_cm0snf.mp4', thumb:'thumbnail/rishikesh.png' },
     { ratio:'9-16', cat:'podcast intro', title:"raj shamani intro", tools:'Premiere pro · DaVinci Resolve grade', video:'https://res.cloudinary.com/dqwcoigxe/video/upload/3_dikdpc.mp4', thumb:'thumbnail/raj.png' },
     { ratio:'9-16', cat:'podcast edit', title:'Mr. Beast intro', tools:'Premiere Pro · subtitles · color grading · ai photos',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/4_n80u9e.mp4', thumb:'thumbnail/mrbeast.jpg' },
     { ratio:'16-9', cat:'podcast edit', title:'iman and his watches', tools:'Premiere Pro · captioning · color grading',video:'https://res.cloudinary.com/dqwcoigxe/video/upload/5_dz92ly.mp4', thumb:'thumbnail/iman.png' },
-    // { ratio:'9-16', cat:'Product Reel', title:'Launch Teaser — 15 Sec Cut', tools:'Resolve grade · fast hook pacing' }
+    
   ];
 
   const stage = document.getElementById('deckStage');

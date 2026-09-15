@@ -530,15 +530,123 @@
     transition:border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
   .soft-card::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  right:-30%;
+  width:60%;
+  height:140%;
+  opacity:0;
+  transition:opacity 0.4s;
+}
+
+/* Common hover movement */
+.soft-card:hover{
+  transform:translateY(-6px);
+}
+
+.soft-card:hover::after{
+  opacity:1;
+}
+
+/* Premiere Pro */
+.soft-card:nth-child(1)::after{
+  background:radial-gradient(
+    circle,
+    rgba(153,102,255,0.35),
+    transparent 70%
+  );
+}
+
+.soft-card:nth-child(1):hover{
+  border-color:rgba(153,102,255,0.6);
+  box-shadow:
+    0 0 20px rgba(153,102,255,0.3),
+    0 20px 50px -16px rgba(153,102,255,0.4);
+}
+
+/* After Effects */
+.soft-card:nth-child(2)::after{
+  background:radial-gradient(
+    circle,
+    rgba(0, 220, 255, 0.64),
+    transparent 70%
+  );
+}
+
+.soft-card:nth-child(2):hover{
+  border-color:rgba(0, 220, 255,0.6);
+  box-shadow:
+    0 0 20px rgba(0, 220, 255,0.3),
+    0 20px 50px -16px rgba(0, 220, 255,0.4);
+}
+
+/* DaVinci Resolve */
+.soft-card:nth-child(3)::after{
+  background:radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.35),
+    transparent 70%
+  );
+}
+
+.soft-card:nth-child(3):hover{
+  border-color:rgba(255, 0, 0,0.6);
+  box-shadow:
+    0 0 20px rgba(255, 0, 0, 0.3),
+    0 20px 50px -16px rgba(255, 0, 0,0.4);
+}
+  /* .soft-card::after{
     content:""; position:absolute; top:-40%; right:-30%; width:60%; height:140%;
     background:radial-gradient(circle, var(--red-soft), transparent 70%);
     opacity:0; transition:opacity 0.4s;
   }
   .soft-card:hover{ transform:translateY(-6px); border-color:rgba(255,22,50,0.4); box-shadow:0 20px 50px -16px var(--red-glow); }
-  .soft-card:hover::after{ opacity:1; }
+  .soft-card:hover::after{ opacity:1; } */
   .soft-icon-badge{
-    width:64px; height:64px; margin-bottom:24px; position:relative; z-index:1;
+    width:100px; height:100px; margin-bottom:24px; position:relative; z-index:1;
   }
+  .soft-icon-badge{
+  width:140px;
+  height:140px;
+  margin-bottom:24px;
+  position:relative;
+  z-index:1;
+}
+
+.soft-icon-badge img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+@media (max-width:819px){
+  .soft-icon-badge{
+    width:100px;
+    height:100px;
+  }
+}
+
+@media (max-width:520px){
+  .soft-icon-badge{
+    width:85px;
+    height:85px;
+  }
+}
+  /* .soft-icon-badge img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+
+  @media (max-width:819px){
+    .soft-icon-badge{ width:64px; height:64px; }
+  }
+  @media (max-width:520px){
+    .soft-icon-badge{ width:56px; height:56px; }
+  } */
   .soft-name{ font-family:'Archivo Black',sans-serif; font-size:clamp(20px,3vw,24px); text-transform:uppercase; margin-bottom:10px; position:relative; z-index:1; }
   .soft-desc{ color:var(--paper-dim); font-size:14px; line-height:1.6; margin-bottom:20px; position:relative; z-index:1; }
   .soft-tags{ display:flex; gap:8px; flex-wrap:wrap; position:relative; z-index:1; }
