@@ -1045,3 +1045,16 @@
   }
 
 }
+@media (max-width:520px){
+  .deck-stage{
+    height:700px;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .deck-card,
+  .deck-card.ratio-16-9{
+    width:82vw !important;
+    max-width:340px;
+  }
+}
